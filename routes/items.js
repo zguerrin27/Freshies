@@ -25,8 +25,9 @@ router.post('/', (req, res) => {
 // route is DELETE /items/:id, It gets all items, if I was adding auth it would be Public
 router.delete('/:id', (req, res) => {
   Item.findById(req.params.id)
- // with promise back to us..take item arrow func.remove item..promise is then callback..make the res an object. 
+ // with promise back to us..take item arrow func.remove item..promise is then callback..make the response an object
   .then(item => item.remove().then( () => res.json({success: true})))
+  // if item not found... catch err..callback response status is 404 not found..return object false
   .catch(err => res.status(404).json({success: false}))
 })
 
