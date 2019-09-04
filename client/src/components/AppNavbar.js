@@ -34,10 +34,11 @@ class AppNavbar extends Component {
     })
   }
 
+    // style={{maxWidth: "75%", margin: "auto"}}
   render() {
     return (
-      <div>
-        <Navbar color="dark" dark expand="sm" className="mb-5"  >
+      <div >
+        <Navbar color="dark" dark expand="sm" className="mb-3"  >
           <Container>
             <NavbarBrand href="/">Freshies List</NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
