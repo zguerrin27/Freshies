@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {
-  Container,
   ListGroup,
   ListGroupItem,
   Button
@@ -23,23 +22,23 @@ class ShoppingList extends Component {
 
     const { items } = this.props.item;
     // const { items } = this.state; // destructoring... the curly braces pulls out items from this.state
-
     // style={{maxWidth: "75%", margin: "auto"}}
     // <Container></Container>
     return (
     
         <ListGroup>
-          {items.map( ({ id, name }) => (
+          {items.map( ({ _id, name }) => (
             <ListGroupItem>
               <Button
                 className="remove-btn"
                 style={{marginRight: "5rem"}}
                 color="danger"
                 size="small"
-                onClick={this.onDeleteClick.bind(this, id)}   // binds this to onDeleteClick because its an arrow function and not bound in a constructor.. passes up id
+                onClick={this.onDeleteClick.bind(this, _id)}   // binds this to onDeleteClick because its an arrow function and not bound in a constructor.. passes up id
                 > &times;
                 </Button>
             {name}
+                
             </ListGroupItem>
           ))}
         </ListGroup> 

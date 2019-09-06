@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import uuid from 'uuid';
 import { addItem } from '../actions/itemActions';
 import {
   Button,
@@ -33,14 +32,10 @@ class ItemModal extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();   // stops form from default behavior 
-
     const newItem = {
-      id: uuid(),
       name: this.state.name
     }
-
     this.props.addItem(newItem);   // Add new item via the addItem action that you grab from props
-
     this.toggle();  // close the modal
   }
 
@@ -49,7 +44,7 @@ class ItemModal extends Component {
       <div>
         <Button
           color="primary"
-          style={{marginBottom: '1rem', marginLeft: '2rem', maxWidth: '95%'}}
+          style={{marginBottom: '1rem'}}
           onClick={this.toggle}
           size="lg"
           block
